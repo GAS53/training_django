@@ -1,0 +1,9 @@
+<h1>Обьявления</h1>
+<a href="{% url 'board:add' %}">Добавить</a>
+<h2>Рубрика {{current_rubric.name}}</h2>
+<div>
+    <a href="{% url 'board:index' %}">Главная</a>
+    {% for rubric in rubrics %}
+    <a href="{% url 'board:by_rubric' rubric.pk %}">{{rubric.name}}</a>
+    {% endfor %}
+</div>
