@@ -1,28 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "bboard/overall/basic.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{current_rubric.name}} Доска обьявлений</title>
-</head>
+{% block title %}Добавление обьявления{% endblock %}
 
-<body>
-    <h1>обьявления</h1>
-    <h2>Рубрика {{current_rubric.name}}</h2>
-    <div>
-        <a href="/board/">Главная</a>
-        {% for rubric in rubrics %}
-        <a href="/board/{{rubric.pc}}/">{{rubric.name}}</a>
-        {% endfor %}
-    </div>
-    {% for bb in bbs %}
-    <div>
-        <h2>{{bb.title }}</h2>
-        <p>{{bb.content}}</p>
-    </div>
-    {% endfor %}
-</body>
+{% block content %}
+<h2>Рубрика: {{current_rubric.name }}</h2>
+{% for bb in bbs %}
+<div>
+    <h2>{{ bb.title }}</h2>
+    <p>{{ bb.content }}</p>
+    <p>{{ bb.published }}</p>
 
-</html>
+
+</div>
+{% endfor %}
+{% endblock %}
